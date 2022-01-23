@@ -1,21 +1,12 @@
-import {useEffect, useState} from 'react';
 import './App.css';
 
+const LOGIN_URI = process.env.NODE_ENV !== 'production' ? "http://localhost:8888/login" : "";
+
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch("/login")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {!data ? "Loading..." : data}
-        </p>
+        <a href={LOGIN_URI}>login here</a>
       </header>
     </div>
   );
